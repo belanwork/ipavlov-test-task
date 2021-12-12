@@ -1,0 +1,144 @@
+@import '~normalize.css/normalize.css';
+@import './variables.scss';
+@import './fonts.scss';
+
+body, html, #root {
+  width: 100%;
+  height: 100%;
+}
+
+#root {
+  background: -webkit-linear-gradient(left, $gradientStartColor, $gradientEndColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.app {
+  width: 560px;
+  height: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.title {
+  width: 100%;
+    display: block;
+    font-family: 'Open Sans';
+    font-weight: 400;
+    font-size: 30px;
+    color: $titleFontColor;
+    line-height: 1.2;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    padding-bottom: 40px;
+}
+
+.form {
+  width: 560px;
+  display: flex;
+  flex-direction: column;
+  &__inputsWrapper {
+    display: flex;
+    flex-direction: row;
+  }
+  &__inputWrapper {
+    flex-grow: 1;
+    position: relative;
+  }
+}
+
+.formInput {
+  font-family: 'Open Sans';
+  font-weight: 700;
+  font-size: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  color: $formInputFontColor;
+  line-height: 1.2;
+  display: block;
+  padding: 0 30px;
+  border: 1px solid $formInputBorderColor;
+  background-color: #fff;
+  outline: none;
+  height: 75px;
+  &:focus + &__focus {
+    opacity: 1;
+    transition: transform 1s ease-in-out ;
+    transform: scaleX(1) scaleY(1);
+    z-index: 2;
+  }
+  &__focus {
+    position: absolute;
+    width: 100%;
+    height: 75px;
+    display: block;
+    width: calc(100%);
+    height: calc(100%);
+    top: -1px;
+    left: -1px;
+    pointer-events: none;
+    border: 1px solid $formInputFocusBorderColor;
+    visibility: visible;
+    opacity: 0;
+    transform: scaleX(1.1) scaleY(1.3);
+  }
+  &__error {
+    border: 1px solid red;
+  }
+}
+
+.formSubmitButton {
+  border: none;
+    font-family:'Open Sans';
+    font-weight: 700;
+    font-size: 15px;
+    color: $formButtonFontColor;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    height: 70px;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    background: $formButtonBackgroundColor;
+    &:hover {
+      background: -webkit-linear-gradient(left, $gradientStartColor, $gradientEndColor);
+    }
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.success {
+  width: 100%;
+  display: block;
+  font-family: 'Open Sans';
+  font-weight: 400;
+  font-size: 30px;
+  color: $successFontColor;
+  line-height: 1.2;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+  padding-top: 40px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+::-webkit-scrollbar {
+  width: 0;
+}
